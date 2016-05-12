@@ -39,6 +39,7 @@ import keycode from 'keycode';
 export default class ModalDialog extends React.Component {
   static propTypes = {
     onClose: PropTypes.func, // required for the close button
+    btnColor: PropTypes.string,
     className: PropTypes.string, // css class in addition to .ReactModalDialog
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // width
     topOffset: PropTypes.number, // injected by @centerComponent
@@ -128,6 +129,7 @@ export default class ModalDialog extends React.Component {
         topOffset,
         leftOffset,
         width,
+        btnColor,
         className,
         children,
         onClose,
@@ -159,7 +161,7 @@ export default class ModalDialog extends React.Component {
       {
         onClose ?
         <a className={classes.closeButton} onClick={onClose}>
-          <CloseCircle diameter={40}/>
+          <CloseCircle diameter={40} color={btnColor || null}/>
         </a> :
         null
       }
